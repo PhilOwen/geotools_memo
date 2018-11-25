@@ -6,7 +6,7 @@ import org.opengis.feature.simple.SimpleFeature
 import org.locationtech.jts.geom._
 
 object ShapeReaderApp extends App {
-  val dataStore = connectToDataSource("locations1.shp")
+  val dataStore = connectToDataSource("./shp/locations1.shp")
   val features  = readFeatures(dataStore, "locations1")
   features.foreach(writeAttributes)
 

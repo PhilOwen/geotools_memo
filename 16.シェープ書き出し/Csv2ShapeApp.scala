@@ -12,13 +12,13 @@ import org.opengis.feature.simple._
 import org.locationtech.jts.geom._
 
 object Csv2ShapeApp extends App {
-  val (csvfile, shpfile) = ("locations1.csv", "locations1.shp")
+  val (csvfile, shpfile) = ("locations1.csv", "./out/locations1.shp")
   val TYPE = DataUtilities.createType("Location",
     Array("the_geom:Point:srid=4326", "name:String", "number:Integer").mkString(","))
 
   val records      = readCSV(csvfile)
   val features     = buildFeatures(TYPE, records)
-  val dataStore    =  createShapefileDataStore(shpfile, TYPE)
+  val dataStore    = createShapefileDataStore(shpfile, TYPE)
   val featureStore = getFeatureStore(dataStore)
   val collection   = new ListFeatureCollection(TYPE, features)
   runTransaction(featureStore, collection)
