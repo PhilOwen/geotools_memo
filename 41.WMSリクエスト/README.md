@@ -8,11 +8,15 @@ WMSサーバが必要だが、
 GeoServerにデフォルトで入っていた
 ニューヨークのレイヤをそのまま使用
 （レイヤリストの3番目）。  
-ダウンロードしたい地図範囲と、画像サイズは
-どう指定するのがいいのだろう…
+ダウンロードしたい地図範囲と、画像サイズの指定が困る…。
+どう指定するのが良いんだろう。
 
 保存は、GeoTools関係なく、
 単純にストリームをImageIOで保存した。
+
+なお、別にダウンロードと保存の処理は
+GeoToolsならではの高度なことではなく、
+普通にcurl等でできる。
 
 ## 参考
 - [Image Tutorial](http://docs.geotools.org/latest/userguide/tutorial/raster/image.html)
