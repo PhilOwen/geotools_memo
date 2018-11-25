@@ -11,7 +11,7 @@ import org.geotools.data.wms.response.GetMapResponse
 object WMSRequestApp extends App {
   val url = new URL("http://localhost:8080/geoserver/wms?VERSION=1.1.1&Request=GetCapabilities&Service=WMS")
   val wms = new WebMapServer(url)
-  val nyLayer = getLayer(wms, 3)
+  val nyLayer  = getLayer(wms, 3)
   val request  = setupRequest(wms, nyLayer)
   val response = wms.issueRequest(request)
   saveResponseImage(response, "./ny.png")
@@ -23,8 +23,8 @@ object WMSRequestApp extends App {
   }
 
   def setupRequest(server: WebMapServer, layer: Layer): GetMapRequest = {
-    val req = wms.createGetMapRequest()
-    req.addLayer(nyLayer)
+    val req = server.createGetMapRequest()
+    req.addLayer(layer)
     req.setFormat("image/png")
     req.setDimensions("512", "512")
     req.setTransparent(true)
