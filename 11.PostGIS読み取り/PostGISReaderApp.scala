@@ -2,10 +2,9 @@ import collection.JavaConversions._
 import org.geotools.data.DataStore
 import org.geotools.data.DataStoreFinder
 import org.geotools.data.simple.SimpleFeatureCollection
-import org.geotools.filter.text.cql2.CQL
 import org.opengis.feature.simple.SimpleFeature
 
-object QueryApp extends App {
+object PostGISReaderApp extends App {
   val params = Map[String, Object](
     "dbtype"   -> "postgis",
     "host"     -> "localhost",
@@ -18,10 +17,8 @@ object QueryApp extends App {
   println("getting tables...")
   dataStore.getTypeNames.foreach(f => println(s"- $f"))
 
-  val typeName   = "sample_point"
-  val filterText = "name LIKE '%mag%'"
   println("sending query...")
-  val features = filterFeatures(typeName, filterText)
+  val features = filterFeatures("sample_point")
   println("iterating results...")
   for (feature <- features.toArray) {
     printAttributes(feature.asInstanceOf[SimpleFeature])
@@ -31,10 +28,9 @@ object QueryApp extends App {
     DataStoreFinder.getDataStore(params)
   }
 
-  def filterFeatures(typeName: String, filterText: String): SimpleFeatureCollection = {
+  def filterFeatures(typeName: String): SimpleFeatureCollection = {
     val source = dataStore.getFeatureSource(typeName)
-    val filter = CQL.toFilter(filterText)
-    source.getFeatures(filter)
+    source.getFeatures()
   }
 
   def printAttributes(feature: SimpleFeature) {

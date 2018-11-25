@@ -3,5 +3,6 @@ resolvers += "Open Source Geospatial Foundation Repository" at "http://download.
 resolvers += "Boundless Maven Repository" at "http://repo.boundlessgeo.com/main"
 
 libraryDependencies ++= Seq(
-  "org.geotools.jdbc" % "gt-jdbc-postgis" % "20.1"
+  "org.geotools" % "gt-shapefile" % "20.1",
+  "org.geotools" % "gt-cql" % "20.1"
 )
