@@ -6,7 +6,7 @@ import org.geotools.styling._
 import org.geotools.swing.JMapFrame
 
 object GeoToolsQuickStartApp extends App {
-  val file  = new File("./coastl_jpn.shp")
+  val file  = new File("./shp/coastl_jpn.shp")
   val store = FileDataStoreFinder.getDataStore(file)
 
   val featureSource = store.getFeatureSource
