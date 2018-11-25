@@ -1,4 +1,5 @@
 import collection.JavaConversions._
+
 import org.geotools.data.DataStore
 import org.geotools.data.DataStoreFinder
 import org.geotools.data.simple.SimpleFeatureCollection

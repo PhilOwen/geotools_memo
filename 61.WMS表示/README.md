@@ -1,11 +1,13 @@
+GeoTools公式チュートリアルの5番目、
+Image Tutorialの最後の方をピックアップ。
 地図配信サービスのWMS(Web Map Service)から、地図を選んで表示してみる。
 
-まずはWMSサーバを選択する必要があるが、
-今回はローカルで立てたGeoServerを使った。
-JAXAのDEM（Digital Elevation Model）を
-WMSで配信するようにGeoServerを設定した。
-DEMは、JAXAのサイトからGeoTiffとしてダウンロードでき、
-今回は富山県周辺を選んだ。
+WMSサーバが必要だが、
+またローカルで立てたGeoServerを使った。  
+GeoServerはかなり便利。
+GeoTiffなどもレイヤとして簡単にセットアップできる。
+JAXAのDEMとか、無償でダウンロードできるので使うと良い。
+今回は山がちな富山県周辺を選んだ。
 
 WMSサーバは、自分ができること(capability)をメタデータとして配信しているので、
 そのcapabilityから、見たいレイヤを選ぶ。
